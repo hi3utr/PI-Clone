@@ -3,7 +3,7 @@ import { useTableList } from "../../hooks/useTableList";
 
 export const RightTable = () => {
   const [showTable, setShowTable] = useState<boolean>(false);
-  const { products } = useTableList();
+  const { products, loading } = useTableList();
   return (
     <>
       <div

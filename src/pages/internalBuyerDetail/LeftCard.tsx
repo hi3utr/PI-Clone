@@ -1,11 +1,20 @@
 import React from "react";
 import { useProductList } from "../../hooks/useProductList";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const LeftCard = () => {
-  const { products } = useProductList();
-
+  const { products, loading } = useProductList();
   return (
     <>
+      {loading &&
+        Array(3)
+          .fill(0)
+          .map((arr) => (
+            <div className="px-4 py-4">
+              <Skeleton count={5} />
+            </div>
+          ))}
       {products.map((product) => (
         <div className="py-[16px] border-t-2 cursor-pointer border-l-4 border-l-white hover:bg-[#F3F7FF] hover:border-l-4 hover:border-l-[#0C2F88] hover:rounded">
           <div className="pl-[72px] pb-[16px]">
